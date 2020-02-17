@@ -60,15 +60,33 @@ class CreateIncident extends Component {
     // }
     form_data.append('incident_category', this.state.incident_category);
     form_data.append('person_reporting_name', this.state.person_reporting_name);
-    // form_data.append('last_name', this.state.full_users_info.last_name);
-    // form_data.append('email_id', this.state.full_users_info.email_id);
-    // form_data.append('mobile_number', this.state.full_users_info.mobile_number);
-    // form_data.append('street', this.state.full_users_info.street);
-    // form_data.append('country', this.state.full_users_info.country);
-    // form_data.append('state', this.state.full_users_info.state);
-    // form_data.append('city', this.state.full_users_info.city);
-    // form_data.append('active', this.state.active);
-    fetch('http://127.0.0.1:8000/incidents/', {
+    form_data.append('email', this.state.email);
+    form_data.append('sector', this.state.sector);
+    form_data.append('country', this.state.country);
+    form_data.append('state', this.state.state);
+    form_data.append('mobile', this.state.mobile);
+    form_data.append('detail_obtain_tool_1', this.state.detail_obtain_tool_1);
+    form_data.append('detail_obtain_tool_2', this.state.detail_obtain_tool_2);
+    form_data.append('detail_obtain_tool_3', this.state.detail_obtain_tool_3);
+    form_data.append('detail_obtain_tool_4', this.state.detail_obtain_tool_4);
+    form_data.append('detail_obtain_tool_5', this.state.detail_obtain_tool_5);
+    form_data.append('detail_obtain_tool_6', this.state.detail_obtain_tool_6);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    form_data.append('person_reporting_name', this.state.person_reporting_name);
+    
+    fetch('http://127.0.0.1:8000/incident_creation_info/incidents/', {
       method: 'POST',
       headers: {
                 // 'Content-Type': 'application/json',
@@ -278,10 +296,9 @@ class CreateIncident extends Component {
   render() {
     return (
       <div className="mt-2">
-        <div className="text-center text-white bg-dark"><p><b>Create Incident</b></p></div>
+        {/* <div className="text-center text-white bg-dark"><p><b>Create Incident</b></p></div>
           <div className="row ml-0 mr-0">
             <div className="col-12 col-md-4 text-center">
-              {/* <p>New</p> */}
               <p><span> Incident Number : </span>CAT-202002140001</p>
             </div>
             <div className="col-12 col-md-4 text-center">
@@ -292,7 +309,7 @@ class CreateIncident extends Component {
               <p className="mb-0">Incident Reporting  Time</p>
               <p>00:50:18</p>
             </div>
-          </div>
+          </div> */}
           <div className="border">
             <div className="row ml-0 mr-0">
               <div className="col-12 text-center"><p><b>Reporting Party Details</b></p></div>
@@ -324,7 +341,7 @@ class CreateIncident extends Component {
                                   <div className="col-12 col-md-3">
                                       <div className="form-group">
                                           <label>Category</label>
-                                          <select className="form-control" name='incident_category' onChange={this.incident_categoryChanged}>
+                                          <select className="form-control" name='incident_category' onChange={this.incident_categoryChanged} required>
                                             <option></option>
                                             <option value="phishisng">Phishisng</option>
                                             <option value="malware">Malware</option>
@@ -344,13 +361,13 @@ class CreateIncident extends Component {
                                   <div className="col-12 col-md-3">
                                      <div className="form-group">
                                         <label>Person Reporting Name</label>
-                                        <input type="text" name='person_reporting_name' className="form-control" onChange={this.person_reporting_nameChanged} required/>
+                                        <input type="text" name='person_reporting_name' className="form-control" onChange={this.person_reporting_nameChanged} />
                                       </div>
                                     </div>
                                     <div className="col-12 col-md-3">
                                       <div className="form-group">
                                         <label>Email</label>
-                                        <input type="email" name='email_id' className="form-control" onChange={this.email_idChanged} required/>
+                                        <input type="email" name='email_id' className="form-control" onChange={this.email_idChanged} />
                                       </div>
                                     </div>
 
@@ -379,27 +396,27 @@ class CreateIncident extends Component {
                                 <div className="col-12 col-md-3">
                                       <div className="form-group">
                                         <label>Sector</label>
-                                        <input type="text" name='sector' className="form-control" onChange={this.sectorChanged} required/>
+                                        <input type="text" name='sector' className="form-control" onChange={this.sectorChanged} />
                                       </div>
                                 </div>
                                 <div className="col-12 col-md-3">        
                                   <div className="form-group">
                                           <label>Mobile Number</label>
-                                          <input type="text" name='mobile' className="form-control" onChange={this.mobileChanged} required/>
+                                          <input type="text" name='mobile' className="form-control" onChange={this.mobileChanged} />
                                   </div>
                                 </div>
 
                                 <div className="col-12 col-md-3">        
                                   <div className="form-group">
                                           <label>Fax</label>
-                                          <input type="text" name='fax' className="form-control" onChange={this.faxChanged} required/>
+                                          <input type="text" name='fax' className="form-control" onChange={this.faxChanged} />
                                   </div>
                                 </div>
 
                                 <div className="col-12 col-md-3">        
                                   <div className="form-group">
                                           <label>Phone</label>
-                                          <input type="text" name='phone' className="form-control" onChange={this.phoneChanged} required/>
+                                          <input type="text" name='phone' className="form-control" onChange={this.phoneChanged} />
                                   </div>
                                 </div>
 
@@ -407,7 +424,7 @@ class CreateIncident extends Component {
                                   <div className="form-group">
                                           <label>IP Address</label>
                                           {/* <input type="text" name='mobile_number' className="form-control" value={this.state.full_users_info.mobile_number} onChange={this.inputChanged} required/> */}
-                                          <input type="text" name='ip_address' className="form-control" onChange={this.ip_addressChanged} required/>
+                                          <input type="text" name='ip_address' className="form-control" onChange={this.ip_addressChanged} />
                                           {/* <b style={{color:'red'}} > {this.state.mobile_number_error} </b> */}
                                   </div>
                                 </div>
@@ -417,7 +434,7 @@ class CreateIncident extends Component {
                                   <div className="form-group">
                                           <label>Domain Url</label>
                                           {/* <input type="text" name='mobile_number' className="form-control" value={this.state.full_users_info.mobile_number} onChange={this.inputChanged} required/> */}
-                                          <input type="text" name='domain_url' className="form-control" onChange={this.domain_urlChanged} required/>
+                                          <input type="text" name='domain_url' className="form-control" onChange={this.domain_urlChanged} />
                                           {/* <b style={{color:'red'}} > {this.state.mobile_number_error} </b> */}
                                   </div>
                                 </div>
@@ -426,7 +443,7 @@ class CreateIncident extends Component {
                                   <div className="form-group">
                                           <label>Observations/incident details</label>
                                           {/* <input type="text" name='mobile_number' className="form-control" value={this.state.full_users_info.mobile_number} onChange={this.inputChanged} required/> */}
-                                          <input type="text" name='incident_details' className="form-control" onChange={this.incident_detailsChanged} required/>
+                                          <input type="text" name='incident_details' className="form-control" onChange={this.incident_detailsChanged} />
                                           {/* <b style={{color:'red'}} > {this.state.mobile_number_error} </b> */}
                                   </div>
                                 </div>
@@ -435,7 +452,7 @@ class CreateIncident extends Component {
                                   <div className="form-group">
                                           <label>Incident Observed Date</label>
                                           {/* <input type="text" name='mobile_number' className="form-control" value={this.state.full_users_info.mobile_number} onChange={this.inputChanged} required/> */}
-                                          <input type="date" name='incident_observed_date' className="form-control" onChange={this.incident_observed_timeChanged} required/>
+                                          <input type="date" name='incident_observed_date' className="form-control" onChange={this.incident_observed_timeChanged} />
                                           {/* <b style={{color:'red'}} > {this.state.mobile_number_error} </b> */}
                                   </div>
                                 </div>
@@ -444,7 +461,7 @@ class CreateIncident extends Component {
                                   <div className="form-group">
                                           <label>Incident Observed Time</label>
                                           {/* <input type="text" name='mobile_number' className="form-control" value={this.state.full_users_info.mobile_number} onChange={this.inputChanged} required/> */}
-                                          <input type="time" name='incident_observed_time' className="form-control" onChange={this.incident_categoryChanged} required/>
+                                          <input type="time" name='incident_observed_time' className="form-control" onChange={this.incident_categoryChanged} />
                                           {/* <b style={{color:'red'}} > {this.state.mobile_number_error} </b> */}
                                   </div>
                                 </div>
@@ -476,7 +493,7 @@ class CreateIncident extends Component {
                                   <div className="form-group">
                                           <label>Person Reporting Name(If Different)</label>
                                           {/* <input type="text" name='mobile_number' className="form-control" value={this.state.full_users_info.mobile_number} onChange={this.inputChanged} required/> */}
-                                          <input type="text" name='different_person_reporting_name' className="form-control" onChange={this.different_person_reporting_nameChanged} required/>
+                                          <input type="text" name='different_person_reporting_name' className="form-control" onChange={this.different_person_reporting_nameChanged} />
                                           {/* <b style={{color:'red'}} > {this.state.mobile_number_error} </b> */}
                                   </div>
                                 </div>
@@ -485,7 +502,7 @@ class CreateIncident extends Component {
                                   <div className="form-group">
                                           <label>Email(If Different)</label>
                                           {/* <input type="text" name='mobile_number' className="form-control" value={this.state.full_users_info.mobile_number} onChange={this.inputChanged} required/> */}
-                                          <input type="text" name='different_email' className="form-control" onChange={this.different_emailChanged} required/>
+                                          <input type="text" name='different_email' className="form-control" onChange={this.different_emailChanged} />
                                           {/* <b style={{color:'red'}} > {this.state.mobile_number_error} </b> */}
                                   </div>
                                 </div>
@@ -494,7 +511,7 @@ class CreateIncident extends Component {
                                   <div className="form-group">
                                           <label>Oragnaization Impacted(if different)</label>
                                           {/* <input type="text" name='mobile_number' className="form-control" value={this.state.full_users_info.mobile_number} onChange={this.inputChanged} required/> */}
-                                          <input type="text" name='oragnaization_impacted' className="form-control" onChange={this.oragnaization_impactedChanged} required/>
+                                          <input type="text" name='oragnaization_impacted' className="form-control" onChange={this.oragnaization_impactedChanged} />
                                           {/* <b style={{color:'red'}} > {this.state.mobile_number_error} </b> */}
                                   </div>
                                 </div>
@@ -504,7 +521,7 @@ class CreateIncident extends Component {
                                   <div className="form-group">
                                           <label>Sector(If Different):</label>
                                           {/* <input type="text" name='mobile_number' className="form-control" value={this.state.full_users_info.mobile_number} onChange={this.inputChanged} required/> */}
-                                          <input type="text" name='different_sector' className="form-control" onChange={this.different_sectorChanged} required/>
+                                          <input type="text" name='different_sector' className="form-control" onChange={this.different_sectorChanged} />
                                           {/* <b style={{color:'red'}} > {this.state.mobile_number_error} </b> */}
                                   </div>
                                 </div>
@@ -540,7 +557,7 @@ class CreateIncident extends Component {
                                               <div className="form-group">
                                                       <label>No Of User Impacted</label>
                                                       {/* <input type="text" name='mobile_number' className="form-control" value={this.state.full_users_info.mobile_number} onChange={this.inputChanged} required/> */}
-                                                      <input type="number" name='no_user_impacted' className="form-control" onChange={this.no_user_impactedChanged} required/>
+                                                      <input type="number" name='no_user_impacted' className="form-control" onChange={this.no_user_impactedChanged} />
                                                       {/* <b style={{color:'red'}} > {this.state.mobile_number_error} </b> */}
                                               </div>
                                             </div>
@@ -572,7 +589,7 @@ class CreateIncident extends Component {
                                 <div className="col-12 col-md-3">        
                                   <div className="form-group">
                                           <label>Phishing Email Content: (Paste)</label>
-                                          <input type="text" name='phishing_email_content' className="form-control" onChange={this.phishing_email_contentChanged} required/>
+                                          <input type="text" name='phishing_email_content' className="form-control" onChange={this.phishing_email_contentChanged} />
                                   </div>
                                 </div>
                                  :
@@ -584,7 +601,7 @@ class CreateIncident extends Component {
                                 <div className="col-12 col-md-3">        
                                   <div className="form-group">
                                           <label>No of Systems impacted</label>
-                                          <input type="number" name='no_systems_impacted' className="form-control" onChange={this.no_systems_impactedChanged} required/>
+                                          <input type="number" name='no_systems_impacted' className="form-control" onChange={this.no_systems_impactedChanged} />
                                   </div>
                                 </div>
                                 :
@@ -606,7 +623,7 @@ class CreateIncident extends Component {
                                 <div className="col-12 col-md-3">        
                                   <div className="form-group">
                                           <label>MD5</label>
-                                          <input type="text" name='md5' className="form-control" onChange={this.md5Changed} required/>
+                                          <input type="text" name='md5' className="form-control" onChange={this.md5Changed} />
                                   </div>
                                 </div>
                                 :
@@ -618,7 +635,7 @@ class CreateIncident extends Component {
                                 <div className="col-12 col-md-3">        
                                   <div className="form-group">
                                           <label>Malicious Email Content</label>
-                                          <input type="text" name='malicious_email_content' className="form-control" onChange={this.malicious_email_contentChanged} required/>
+                                          <input type="text" name='malicious_email_content' className="form-control" onChange={this.malicious_email_contentChanged} />
                                   </div>
                                 </div>
                                 :
@@ -631,7 +648,7 @@ class CreateIncident extends Component {
                                 <div className="col-12 col-md-3">        
                                   <div className="form-group">
                                           <label>Malicious Email attachments</label>
-                                          <input type="text" name='evidence_malicious_email_attachments' className="form-control" onChange={this.evidence_malicious_email_attachmentsChanged} required/>
+                                          <input type="text" name='evidence_malicious_email_attachments' className="form-control" onChange={this.evidence_malicious_email_attachmentsChanged} />
                                   </div>
                                 </div>
                                 :
@@ -660,7 +677,7 @@ class CreateIncident extends Component {
                                 <div className="col-12 col-md-3">        
                                   <div className="form-group">
                                           <label>ISP Name</label>
-                                          <input type="text" name='isp_name' className="form-control" onChange={this.isp_nameChanged} required/>
+                                          <input type="text" name='isp_name' className="form-control" onChange={this.isp_nameChanged} />
                                   </div>
                                 </div>
                                 :
@@ -676,37 +693,37 @@ class CreateIncident extends Component {
                                 <div className="col-12 col-md-4">        
                                   <div className="form-group">
                                           <label>Details Obtained from Tool 1</label>
-                                          <input type="text" name='detail_obtain_tool_1' className="form-control" onChange={this.detail_obtain_tool_1Changed} required/>
+                                          <input type="text" name='detail_obtain_tool_1' className="form-control" onChange={this.detail_obtain_tool_1Changed} />
                                   </div>
                                 </div>
                                 <div className="col-12 col-md-4">        
                                   <div className="form-group">
                                           <label>Details Obtained from Tool 2</label>
-                                          <input type="text" name='detail_obtain_tool_2' className="form-control" onChange={this.detail_obtain_tool_2Changed} required/>
+                                          <input type="text" name='detail_obtain_tool_2' className="form-control" onChange={this.detail_obtain_tool_2Changed} />
                                   </div>
                                 </div>
                                 <div className="col-12 col-md-4">        
                                   <div className="form-group">
                                           <label>Details Obtained from Tool 3</label>
-                                          <input type="text" name='detail_obtain_tool_3' className="form-control" onChange={this.detail_obtain_tool_3Changed} required/>
+                                          <input type="text" name='detail_obtain_tool_3' className="form-control" onChange={this.detail_obtain_tool_3Changed} />
                                   </div>
                                 </div>
                                 <div className="col-12 col-md-4">        
                                   <div className="form-group">
                                           <label>Details Obtained from Tool 4</label>
-                                          <input type="text" name='detail_obtain_tool_4' className="form-control" onChange={this.detail_obtain_tool_4Changed} required/>
+                                          <input type="text" name='detail_obtain_tool_4' className="form-control" onChange={this.detail_obtain_tool_4Changed} />
                                   </div>
                                 </div>
                                 <div className="col-12 col-md-4">        
                                   <div className="form-group">
                                           <label>Details Obtained from Tool 5</label>
-                                          <input type="text" name='detail_obtain_tool_5' className="form-control" onChange={this.detail_obtain_tool_5Changed} required/>
+                                          <input type="text" name='detail_obtain_tool_5' className="form-control" onChange={this.detail_obtain_tool_5Changed} />
                                   </div>
                                 </div>
                                 <div className="col-12 col-md-4">        
                                   <div className="form-group">
                                           <label>Details Obtained from Tool 6</label>
-                                          <input type="text" name='detail_obtain_tool_6' className="form-control" onChange={this.detail_obtain_tool_6Changed} required/>
+                                          <input type="text" name='detail_obtain_tool_6' className="form-control" onChange={this.detail_obtain_tool_6Changed} />
                                   </div>
                                 </div>
 
